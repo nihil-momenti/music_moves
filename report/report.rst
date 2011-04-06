@@ -1,7 +1,7 @@
 Music Moves
 ###########
 
-:author: Wim Looman
+:author: Wim Looman, Richard Green
 :organization: University of Canterbury
 :date: 31/03/2011
 :abstract: 
@@ -9,3 +9,6 @@ Music Moves
 
 .. sectnum::
 
+.. include:: introduction.rst
+.. include:: results.rst
+.. include:: conclusion.rst
