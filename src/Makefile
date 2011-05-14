@@ -1,14 +1,24 @@
 CC = g++
 CPP = g++
-CFLAGS = `pkg-config opencv --cflags`
-CPPFLAGS = `pkg-config opencv --cflags`
-LFLAGS = `pkg-config opencv --libs`
 
-OBJS = music_moves.o
+CFLAGS += -I/usr/local/include -I/usr/include
+CFLAGS += -g -Wall
+
+CPPFLAGS += -I/usr/local/include -I/usr/include
+CPPFLAGS += -g -Wall
+
+LDFLAGS += -L/usr/local/lib -L/usr/lib
+LDFLAGS += -lportmidi -lpthread
+LDFLAGS += `pkg-config --libs-only-l opencv`
+
+OBJS = $(addsuffix .o, $(basename $(wildcard *.cpp)))
 
 all: music_moves
 
 main.o:
 
 music_moves: ${OBJS}
-	${CC} -o music_moves ${LFLAGS} ${OBJS}
+	${CC} -o music_moves ${LDFLAGS} ${OBJS}
+
+clean:
+	-rm -f $(OBJS)
