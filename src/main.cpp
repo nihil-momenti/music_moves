@@ -26,8 +26,8 @@ void drawOverlay(CvArr* src, Blob* first_blob, Blob* second_blob, int num_frames
     cvDrawContours(src, second_blob[0].contour, colour, colour, -1, 3);
 
     for (int i = 0; i < num_frames; i++) {
-        cvCircle(src, first_blob[i].center, 10, CV_RGB(200-15*i, 20, 20), 5);
-        cvCircle(src, second_blob[i].center, 10, CV_RGB(20, 20, 200-15*i), 5);
+        cvCircle(src, first_blob[i].center, 6, CV_RGB(200-15*i, 20, 20), 5);
+        cvCircle(src, second_blob[i].center, 6, CV_RGB(20, 20, 200-15*i), 5);
     }
 }
 
@@ -67,6 +67,6 @@ int main()
     music_destroy();
     cvReleaseCapture( &capture);
     cvDestroyAllWindows();
-    pthread_exit(NULL);
+    exit(0);
 }
 

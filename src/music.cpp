@@ -48,67 +48,38 @@ void music_init() {
 }
 
 void music_destroy() {
-    pthread_mutex_lock(&stream_mutex);
     if (stream != 0) {
+        int notes[] = {60, 64, 67, 71};
+        for (int i = 0; i < 4; i++) {
+            PmEvent buffer = { Pm_Message(138, notes[i], 0), 0 };
+            if (stream != 0) { Pm_Write(stream, &buffer, 1); }
+        }
         Pm_Close(stream);
     }
     stream = 0;
     Pm_Terminate();
-    pthread_mutex_unlock(&stream_mutex);
 }
 
 
-pthread_mutex_t fakeMutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_cond_t fakeCond = PTHREAD_COND_INITIALIZER;
-
-// Found at http://somethingswhichidintknow.blogspot.com/2009/09/sleep-in-pthread.html
-void mywait(int timeInSec)
-{
-    struct timespec timeToWait;
-    struct timeval now;
-    int rt;
-
-    gettimeofday(&now,NULL);
-
-    timeToWait.tv_sec = now.tv_sec + timeInSec;
-    timeToWait.tv_nsec = now.tv_usec*1000;
-
-    pthread_mutex_lock(&fakeMutex);
-    rt = pthread_cond_timedwait(&fakeCond, &fakeMutex, &timeToWait);
-    pthread_mutex_unlock(&fakeMutex);
-}
-
-static void *music_stop(void *note) {
-    mywait(1);
-    PmEvent buffer = { Pm_Message(138, (long)note, 0), 0 };
-    pthread_mutex_lock(&stream_mutex);
-    if (stream != 0) { Pm_Write(stream, &buffer, 1); }
-    pthread_mutex_unlock(&stream_mutex);
-    pthread_exit(NULL);
-}
-
-void music_beat(SoundID sound_id) {
+void music_beat(SoundID sound_id, int volume) {
     int note = 0;
     pthread_t temp;
 
     switch(sound_id) {
         case FIRST_DRUM:
-            note = 48;
+            note = 60;
             break;
         case SECOND_DRUM:
-            note = 52;
+            note = 64;
             break;
         case THIRD_DRUM:
-            note = 55;
+            note = 67;
             break;
         case FOURTH_DRUM:
-            note = 59;
+            note = 71;
             break;
     }
 
-    PmEvent buffer = { Pm_Message(154, note, 64), 0 };
-    pthread_mutex_lock(&stream_mutex);
+    PmEvent buffer = { Pm_Message(154, note, min(max(volume, 0), 128)), 0 };
     if (stream != 0) { Pm_Write(stream, &buffer, 1); }
-    pthread_mutex_unlock(&stream_mutex);
-    pthread_create(&temp, NULL, music_stop, (void *)note);
 }
