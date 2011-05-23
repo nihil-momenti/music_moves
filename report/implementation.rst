@@ -16,12 +16,3 @@ camera.  This will produce a series of images which will be automatically
 processed to attempt to compensate for the lighting conditions.  Once an
 accurate enough colour sample has been achieved the actual tracking will be
 started.
-
-Neural Network
-----------------
-
-To simplify the creation of the neural network it was decided that this should
-be a separate program.  Writing the network in Erlang would be much easier than
-using C, and by having a separate program the training would be simpler to
-setup.
-
