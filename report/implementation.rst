@@ -34,12 +34,6 @@ with a high quality camera and fast processing speeds.  This system was limited
 to run on a mid-range laptop, however, and the lower quality camera and slow
 processor produced significant blurring in the images taken, see `Figure 2`__.
 
-__
-.. figure:: images/blurring
-  :width: 90%
-
-  The blurring produced by the low quality camera.
-
 Because of this blurring feature detection would be almost useless, the features
 that get detected would disappear into the noise whenever the hands move too
 quickly.  Even using something like Kalman filtering the absolute destruction
@@ -102,6 +96,14 @@ used for the strike detection.
 Strike Detection
 ----------------
 
+FULLWIDTH
+
+__
+.. figure:: images/blurring
+  :width: 50%
+
+  The blurring produced by the low quality camera.
+
 The next step in the pipeline is detecting when the user strikes the virtual
 drum.  Possible options explored for this was training up a neural network that
 took a few frames of (x,y) locations of the hands to determine when a drum was
@@ -146,6 +148,11 @@ see that there is a large spike when this strike happens (`Figure 3b`).
     \caption{The approximation of the hands kinematic motions.}
     \label{figure-3}
   \end{figure*}
+
+We can also use this second derivative as an indicator of the volume of the
+strike, when the user hits the drum harder their hand will stop moving and head
+back up more suddenly.  Because sound volume is a log scale the second
+derivative is squared and scaled to set the beat volume.
 
 Sound Output
 ------------

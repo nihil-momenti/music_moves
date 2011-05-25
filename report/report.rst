@@ -10,6 +10,9 @@ Music Moves
     This report details the design and implementation of an "air drum"
     interactive music program.  Various methods for implementing this on
     consumer hardware utilising a simple webcam are explored.  The results from
+    the current implementation are promising with correct strike rates of 87-92%
+    achieved with false positives of only 13-30%.  Possible improvements to the
+    system are explored for future work.
 
 .. sectnum::
 
@@ -17,12 +20,11 @@ Music Moves
 .. include:: implementation.rst
 .. include:: results.rst
 .. include:: discussion.rst
-.. include:: conclusion.rst
 
 .. raw:: latex
 
   \newpage
 
-  ~
+  %~
 
-  \newpage
+  %\newpage
