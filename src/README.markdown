@@ -1,3 +1,13 @@
+# Build requirements
+
+Building this project will require having the PortMIDI library and headers
+installed.  Building has only been tested on Mac OS 10.6 using XCode 3.2.5, it
+should work fine on any Unix-like system though.  Windows is completly
+untested, you're on your own in terms of working out how to translate the
+Makefile.
+
+# Quick file overview
+
 ## `Boss DR-5.xrni`
 
 This file is a freely available drum sound file for the Renoise synthesiser.
