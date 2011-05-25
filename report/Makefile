@@ -9,3 +9,6 @@ images/%.pdf: images/%.svg
 
 view:
 	zsh -c 'view <( rst2latex.py report.rst 2>/dev/null | ./transform.rb )'
+
+clean:
+	-rm rubtmp?.*

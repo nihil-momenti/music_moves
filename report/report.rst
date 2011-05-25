@@ -16,20 +16,13 @@ Music Moves
 .. include:: introduction.rst
 .. include:: implementation.rst
 .. include:: results.rst
+.. include:: discussion.rst
 .. include:: conclusion.rst
 
 .. raw:: latex
 
-  \nocite{pan}
-  \nocite{godoy}
-  \nocite{chong}
-  \nocite{tarabella}
-  \nocite{winkler}
-  \nocite{castellano}
-  \nocite{yilmaz}
-  \nocite{popa}
-  \nocite{behringer}
-  \nocite{salgian}
-  \nocite{bowyer}
-  \nocite{jensen}
-  \nocite{yetton}
+  \newpage
+
+  ~
+
+  \newpage
