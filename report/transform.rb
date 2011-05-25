@@ -14,6 +14,8 @@ while gets
     at_end = false
   when /\\author\{\}/
     nil
+  when /\\floatplacement\{figure\}\{H\}/
+    nil
   when /\\noindent\\makebox\[\\textwidth\]\[c\]\{(.*)\}/
     puts "\\centering#{$1}"
   when /FULLWIDTH/

@@ -10,11 +10,6 @@ Music Moves
     This report details the design and implementation of an "air drum"
     interactive music program.  Various methods for implementing this on
     consumer hardware utilising a simple webcam are explored.  The results from
-    this, while not entirely working, are definitely promising.  The marked hand
-    tracking worked effectively and the neural net based gesture recognition was
-    able to generate a surprisingly high proportion of matches.  Unfortunately
-    the initial plan of having a MIDI output that could be connected to an
-    actual music program such as GarageBand was sadly not achieved.
 
 .. sectnum::
 
