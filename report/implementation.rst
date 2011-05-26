@@ -14,7 +14,7 @@ FULLWIDTH
 
 __
 .. figure:: images/pipeline
-  :width: 90%
+  :width: 100%
 
   The pipelining approach.
 
@@ -93,6 +93,8 @@ representing that hand for this frame.
 This will give as a final value the current centroid of each hand, ready to be
 used for the strike detection.
 
+In `Figure 3`__ the mask, contour and last 10 centroids of the hands can be seen.
+
 Strike Detection
 ----------------
 
@@ -100,9 +102,17 @@ FULLWIDTH
 
 __
 .. figure:: images/blurring
-  :width: 50%
+  :width: 65%
 
   The blurring produced by the low quality camera.
+
+FULLWIDTH
+
+__
+.. figure:: images/music_moves
+  :width: 100%
+
+  An example of the hand tracking.
 
 The next step in the pipeline is detecting when the user strikes the virtual
 drum.  Possible options explored for this was training up a neural network that
@@ -128,8 +138,8 @@ directly generate first and second order derivatives.  Once these values are
 found a strike can easily be detected via its kinematic properties, when the
 hand hits a drum its movement abruptly changes from downwards to upwards.  This
 abrupt change can be approximated by the velocity of the hand following a
-sigmoid function (`Figure 3a`).  Taking the derivative of this function we can
-see that there is a large spike when this strike happens (`Figure 3b`).
+sigmoid function (`Figure 4a`).  Taking the derivative of this function we can
+see that there is a large spike when this strike happens (`Figure 4b`).
 
 .. raw:: latex
 

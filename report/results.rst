@@ -16,32 +16,48 @@ to take the marker back from the patch.  If there were smaller patches of skin
 colour then the centroid would jump around a lot as the hand joined on to
 different patches.
 
+`Figure 5`__ shows an example of what happens when conditions are non-ideal.
+The brown of both the shirt and jacket are being picked up as skin coloured so
+the tracking completely fails.
+
+FULLWIDTH
+
+__
+.. figure:: images/bad_colour
+  :width: 100%
+
+  Failure of the skin colour masking.
+
 Strike Detection
 ----------------
 
 When the hand tracking was working well the strike detection was very good.
-After extensive testing the results shown below were found.  These results were
+After extensive testing the results shown in `Table 1` were found.  These results were
 gathered under near perfect conditions to purely test the strike detection,
 there was only a few small patches of non skin that was being detected by the
 hand tracking algorithm.
 
 .. raw:: latex
 
-  \vspace{10pt}
-
-  \begin{tabular}{l|rrr}
-  Test                             & Strikes & Correct +ve & False +ve\\
+  \begin{table}
+  \centering
+  \renewcommand{\arraystretch}{1.8}
+  \caption{Results of the strike detection testing.}
+  \label{strike-results}
+  \begin{tabularx}{\linewidth}{X|lp{30px}p{30px}}
+  Test & Strikes & Correct Positive & False Positive\\
   \hline
-  S1 (1 bps) &  100    &   92             &  13\\
-  S2 (2 bps) &  100    &   87             &  19\\
-  F1 (4 bps) & ~200    & ~184             & ~40\\
-  F2 (8 bps) & ~200    & ~175             & ~60
-  \end{tabular}
-
-  \vspace{10pt}
-
-Key: S1 = Slow single handed, S2 = Slow double handed, F1 = Fast single handed,
-F2 = Fast double handed.
+  Slow single handed drumming (1 bps) & 100 & 92 & 13\\
+  Slow double handed drumming (2 bps) & 100 & 87 & 19\\
+  Fast single handed drumming (4 bps) & \textasciitilde 200 & \textasciitilde 184 & \textasciitilde 40\\
+  Fast double handed drumming (8 bps) & \textasciitilde 200 & \textasciitilde 175 & \textasciitilde 60\\
+  \hline
+  Slow single handed drumming (1 bps) & & 92\% & 13\%\\
+  Slow double handed drumming (2 bps) & & 87\% & 19\%\\
+  Fast single handed drumming (4 bps) & & 92\% & 20\% \\
+  Fast double handed drumming (8 bps) & & 87.5\% & 30\%
+  \end{tabularx}
+  \end{table}
 
 These results show that the strike detection is 87-92% accurate, with a false
 positive rate of 13-30%.  Most of the false positives were occuring as double

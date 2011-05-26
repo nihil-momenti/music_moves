@@ -4,6 +4,9 @@ default: ${images}
 	rst2latex.py report.rst | ./transform.rb | rubber-pipe --pdf > report.pdf
 	open report.pdf
 
+count:
+	zsh -c 'texcount <( rst2latex.py report.rst | ./transform.rb )'
+
 images/%.pdf: images/%.svg
 	svg2pdf $< $@
 

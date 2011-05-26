@@ -14,10 +14,11 @@ some feature tracking could make this much more effective.
 
 Otherwise the skin colour detection could be improved, using a more complex set
 of boundary conditions such as those found by Wang, Ren, Jiang and Ipson [wang]_
-could provide better detection of just the areas of interest.  With this a
-better blob determination algorithm could also be used, with better tracking of
-the previous frames hands and tracking all contours in each frame automatic
-subtraction of noise could be achieved.
+could provide better detection of just the areas of interest.
+
+With this a better blob determination algorithm could also be used.  By tracking
+all contours in the last few frames the algorithm could identify noise and
+ignore it as part of the outline of the hands.
 
 Another possible improvement would be adding in background subtraction.  One
 problem with this on the current system is the automatic brightness scaling,

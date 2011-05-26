@@ -16,6 +16,10 @@ Music Moves
 
 .. sectnum::
 
+.. raw:: latex
+
+  \setlength{\parskip}{1ex plus 1ex minus 0.1ex}
+
 .. include:: introduction.rst
 .. include:: implementation.rst
 .. include:: results.rst
@@ -23,8 +27,8 @@ Music Moves
 
 .. raw:: latex
 
+  \balance
   \newpage
-
   %~
-
   %\newpage
+  \balance
