@@ -2,14 +2,12 @@
 
 #include <portmidi.h>
 #include <iostream>
-#include <pthread.h>
 #include <sys/time.h>
 
 using namespace std;
 
 static PmError error = pmNoError;
 static PortMidiStream* stream;
-static pthread_mutex_t stream_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void music_init() {
     if ((error=Pm_Initialize())) {
@@ -63,7 +61,6 @@ void music_destroy() {
 
 void music_beat(SoundID sound_id, int volume) {
     int note = 0;
-    pthread_t temp;
 
     switch(sound_id) {
         case FIRST_DRUM:

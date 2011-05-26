@@ -6,6 +6,7 @@ void maskImage(CvArr* src, CvArr* dst) {
     static CvScalar  hsv_max = cvScalar(20, 150, 255, 0);
     static IplConvKernel* element   = cvCreateStructuringElementEx(5, 5, 3, 3, CV_SHAPE_ELLIPSE);
 
+    cvSmooth(src, src, CV_MEDIAN, 3);
     cvSmooth(src, src, CV_MEDIAN, 5);
     //cvSmooth(src, src, CV_MEDIAN, 5);
     cvSmooth(src, src, CV_MEDIAN, 5);

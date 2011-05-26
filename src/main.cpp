@@ -6,7 +6,6 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <iostream>
-#include <pthread.h>
 
 #include "masker.hpp"
 #include "blob.hpp"

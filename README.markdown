@@ -6,6 +6,9 @@ This repository contains my project for [COSC428], a fourth year computer
 vision paper at the University of Canterbury.  See the
 [report] for details on the implementation.
 
+If you've acquired this some other way the main homepage/repository is located
+[on Github](https://github.com/Nemo157/music_moves).
+
 ## License
 
 All files in the `src` directory are released under the new BSD license, see

@@ -8,7 +8,7 @@ CPPFLAGS += -I/usr/local/include -I/usr/include
 CPPFLAGS += -g -Wall
 
 LDFLAGS += -L/usr/local/lib -L/usr/lib
-LDFLAGS += -lportmidi -lpthread
+LDFLAGS += -lportmidi
 LDFLAGS += `pkg-config --libs-only-l opencv`
 
 OBJS = $(addsuffix .o, $(basename $(wildcard *.cpp)))
